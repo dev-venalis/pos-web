@@ -1,0 +1,4 @@
+# Configuración local del API
+appsettings.json
+appsettings.*.json
+!appsettings.example.json

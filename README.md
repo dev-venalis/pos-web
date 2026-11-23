@@ -1,61 +1,50 @@
 # pos-web
 
-## Desarrollo
+Este repositorio contiene el compilado publicable del POS Web junto con la API ASP.NET Core.
 
-Instala dependencias y ejecuta Angular con npm:
+## Instalación y configuración inicial
 
-```powershell
-npm ci
-npm start
-```
-
-El proxy de desarrollo apunta a `http://localhost:8080`. En producción la aplicación
-usa únicamente [`src/assets/config.json`](src/assets/config.json), con rutas relativas
-para API y SignalR; no se debe cambiar el host dentro del bundle.
-
-## Secretos y configuración del API
-
-`POSBackend/appsettings.json` no contiene claves JWT ni credenciales de SQL. Para
-desarrollo, configúralas con User Secrets:
+1. Descarga o clona el repositorio en la carpeta de publicación.
+2. Crea la configuración local a partir de la plantilla:
 
 ```powershell
-dotnet user-secrets --project ..\POSBackend\POSBackend.API.csproj set "Jwt:Key" "<clave-de-32-bytes-o-mas>"
-dotnet user-secrets --project ..\POSBackend\POSBackend.API.csproj set "ConnectionStrings:DefaultConnection" "<cadena-de-conexion>"
+Copy-Item .\appsettings.example.json .\appsettings.json
 ```
 
-En producción usa el proveedor de secretos de IIS o variables de entorno:
-`Jwt__Key`, `ConnectionStrings__DefaultConnection` y, si corresponde,
-`Server__Scheme=https`. No guardes esos valores en Git ni habilites
-`TrustServerCertificate` salvo una excepción controlada del entorno.
+3. Configura la cadena de conexión y la clave JWT mediante `/config`, variables de entorno o un proveedor de secretos de IIS.
+4. Ejecuta `POSBackend.API.exe` o registra la carpeta como aplicación en IIS.
 
-## Publicación junto con POSBackend
+La plantilla usa `localhost:8080`, usuario SQL `sa`, contraseña vacía y no fija un nombre de base de datos. Debes completar la conexión antes de usar el POS.
 
-`POSBackend/POSBackend.API.csproj` ejecuta automáticamente `npm.cmd ci` y
-`npm.cmd run build` antes de publicar el API. La salida
-`dist/posweb/browser` se incorpora como `wwwroot` del publish y contiene
-el sitio `/pos`.
+## URLs
 
-Para publicar:
+- POS Web: `http://localhost:8080/pos`
+- Configuración: `http://localhost:8080/config`
+- API: mismo origen bajo `/api`
+
+La API y el POS Web se sirven desde el mismo origen; no se debe cambiar el host dentro del bundle. `/config` es una pantalla nativa independiente.
+
+## Desarrollo y publicación
+
+La publicación se genera desde `POSBackend/POSBackend.API.csproj` con npm por defecto:
 
 ```powershell
 dotnet publish POSBackend\POSBackend.API.csproj -c Release -o .\publish
 ```
 
-Si el agente solo dispone de pnpm, se puede seleccionar explícitamente la alternativa:
+La build Angular se incorpora como `wwwroot` del API. Si necesitas pnpm, puedes seleccionarlo explícitamente con `-p:PosWebPackageManager=pnpm.cmd`.
+
+## Configuración local y `git pull`
+
+`appsettings.json` está excluido por `.gitignore` y no se publica en este repositorio. Solo se versiona `appsettings.example.json`. Por eso un `git pull` futuro no reemplaza la configuración local del equipo.
+
+En instalaciones existentes que todavía tengan `appsettings.json` rastreado, respalda el archivo, actualiza el repositorio y restáuralo como archivo local ignorado:
 
 ```powershell
-dotnet publish POSBackend\POSBackend.API.csproj -c Release -o .\publish `
-  -p:PosWebPackageManager=pnpm.cmd
+Copy-Item .\appsettings.json .\appsettings.local.backup.json
+git pull
+Copy-Item .\appsettings.local.backup.json .\appsettings.json
+Remove-Item .\appsettings.local.backup.json
 ```
 
-La publicación resultante se instala como una única aplicación ASP.NET Core en IIS,
-con `8080` como puerto predeterminado. El POS Web queda disponible en
-`http://localhost:8080/pos` y la API en el mismo origen.
-`/config` es una página nativa independiente dentro de `wwwroot/config`; no debe
-reemplazarse con el contenido de `dist/posweb/browser`.
-
-Durante el desarrollo, `npm start` conserva el servidor Angular en `4200` y utiliza
-el proxy hacia la API en `8080`. No se deben ejecutar dos procesos independientes
-en el mismo puerto. Para probar únicamente el build estático en `8080`, usa
-`npm run pwa:test`; esa prueba no debe ejecutarse al mismo tiempo que la API
-integrada.
+No subas claves JWT, contraseñas ni cadenas de conexión reales.
