@@ -38,10 +38,11 @@ La build Angular se incorpora como `wwwroot` del API. Si necesitas pnpm, puedes 
 
 `appsettings.json` está excluido por `.gitignore` y no se publica en este repositorio. Solo se versiona `appsettings.example.json`. Por eso un `git pull` futuro no reemplaza la configuración local del equipo.
 
-En instalaciones existentes que todavía tengan `appsettings.json` rastreado, respalda el archivo, actualiza el repositorio y restáuralo como archivo local ignorado:
+En instalaciones existentes que todavía tengan `appsettings.json` rastreado, respáldalo, restáuralo temporalmente a la versión de Git, actualiza el repositorio y vuelve a copiar la configuración local:
 
 ```powershell
 Copy-Item .\appsettings.json .\appsettings.local.backup.json
+git restore --source=HEAD -- .\appsettings.json
 git pull
 Copy-Item .\appsettings.local.backup.json .\appsettings.json
 Remove-Item .\appsettings.local.backup.json
