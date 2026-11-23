@@ -1,0 +1,108 @@
+{
+  "LOGIN": {
+    "USER": "User:",
+    "PASSWORD": "Password:",
+    "REQUIRED_USER": "User is required",
+    "NUMERIC_USER": "User must be numeric",
+    "REQUIRED_PASSWORD": "Password is required",
+    "SUBMIT": "Log in"
+  },
+  "LOCK_SCREEN": {
+    "SALES_DATE": "SALES DATE",
+    "SELECCIONAR_TERMINAL": "Select Terminal",
+    "DEBE_SELECCIONAR_TERMINAL": "You must select a terminal"
+  },
+  "SWAL": {
+    "CAMBIAR_TERMINAL": {
+      "TEXT": "Are you sure you want to change the terminal?",
+      "INPUT_PLACEHOLDER": "Select a terminal",
+      "CONFIRM_BUTTON": "Yes",
+      "CANCEL_BUTTON": "No"
+    }
+  },
+  "SIDEBAR": {
+    "ABRIR_MESA": "OPEN TABLE",
+    "NUEVA_MESA": "NEW TABLE",
+    "RENTA": "RENTAL",
+    "ORDENAR": "ORDER",
+    "COMANDAS": "COMMANDS",
+    "IMPRIMIR": "PRINT",
+    "RECIBIR_PEDIDOS": "RECEIVE ORDERS",
+    "QR": "QR PROMOTION"
+  },
+  "MESAS": {
+    "NUEVA_MESA": "NEW TABLE",
+    "CARGA_ERROR": "The tables could not be loaded."
+  },
+  "NEW_MESA": {
+    "NOMBRE_LABEL": "Table name:",
+    "NOMBRE_REQUIRED": "The table name is required",
+    "NOMBRE_PATTERN": "The table name cannot have special characters or spaces",
+    "NOMBRE_MAXLENGTH": "The table name cannot exceed 15 characters",
+    "CANTIDAD_CLIENTES_LABEL": "Number of clients:",
+    "CANTIDAD_CLIENTES_REQUIRED": "The number of clients is required",
+    "ABRIR_MESA_BUTTON": "Open table"
+  },
+  "GET_MESA": {
+    "NOMBRE_LABEL": "Table name:",
+    "NOMBRE_REQUIRED": "The table name is required",
+    "NOMBRE_PATTERN": "The table name cannot have special characters or spaces",
+    "NOMBRE_MAXLENGTH": "The table name cannot exceed 15 characters",
+    "RENOMBRAR_MESA_BUTTON": "Rename table"
+  },
+  "RECIBIR_PEDIDOS": {
+    "FOLIO": "FOLIO",
+    "ORDEN": "ORDER",
+    "RECOGE": "PICKUP",
+    "HORA_RECOGE": "PICKUP TIME",
+    "TELEFONO": "PHONE",
+    "RECIBIR_PEDIDO_BUTTON": "RECEIVE ORDER"
+  },
+  "TICKET": {
+    "INGRESA_COMENTARIO": "Enter a comment",
+    "AGREGAR": "Add",
+    "ASAP": "A.S.A.P",
+    "NO_MAKE": "NO MAKE",
+    "CERRAR": "Close"
+  },
+  "FOOTER": {
+    "CERRAR_SESION": "LOG OUT"
+  },
+  "PRODUCCION": {
+    "HEADER": {
+      "TITULO": "KDS",
+      "FINALIZAR_PROD": "FINALIZE PROD.",
+      "FINALIZAR_TICKET": "FINALIZE TICKET",
+      "MOVERSE": "NAVIGATE",
+      "TOOLTIP_FINALIZAR_PROD": "Finalize product (Enter)",
+      "TOOLTIP_FINALIZAR_TICKET": "Finalize ticket (Double Enter)",
+      "TOOLTIP_MOVERSE": "Navigate (Arrows)",
+      "CONECTADO": "CONNECTED",
+      "SIN_CONEXION": "NO CONNECTION",
+      "IMPRESORA": "STATION:",
+      "TODAS": "ALL",
+      "TOOLTIP_IMPRESORA": "Filter by station"
+    },
+    "FOOTER": {
+      "TICKETS": "Tickets:",
+      "A": "to",
+      "DE": "of",
+      "PAGINA": "Page:",
+      "NOTIFICACION": "Notification:",
+      "MODIFICADORES": "MODIFIERS",
+      "ZOOM": "ZOOM:",
+      "PAGINA_ANTERIOR": "Previous page (F11)",
+      "PAGINA_SIGUIENTE": "Next page (F12)",
+      "GUARDAR": "Save and refresh (F5)",
+      "ZOOM_MENOS": "Zoom out",
+      "ZOOM_MAS": "Zoom in"
+    },
+    "TICKET": {
+      "TIEMPO": "TIME"
+    }
+  },
+  "MAIN": {
+    "ACEPTAR": "Accept",
+    "CERRAR": "Close"
+  }
+}

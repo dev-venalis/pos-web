@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configuración POS Backend</title>
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="css/site.css?v=1.8.0.2">
+</head>
+<body>
+<div id="authMsg" class="msg"></div>
+<div id="configContent" class="container" hidden>
+  <h1>Configuración POS Backend</h1>
+
+  <h2>Servidor</h2>
+  <div class="row">
+    <div>
+      <label>Host</label>
+      <input id="host" placeholder="localhost">
+    </div>
+    <div>
+      <label>Puerto</label>
+      <input id="port" type="number" placeholder="8080">
+    </div>
+  </div>
+
+  <h2>Orígenes permitidos</h2>
+  <div class="origin-add">
+    <input id="originInput" placeholder="http://localhost:4200" onkeydown="if (event.key === 'Enter') agregarOrigen()">
+    <button class="btn-secondary" onclick="agregarOrigen()">Agregar</button>
+  </div>
+  <ul id="originList" class="origin-list"></ul>
+
+  <h2>Conexión a base de datos</h2>
+  <div class="row">
+    <div>
+      <label>Servidor</label>
+      <input id="dbServer" placeholder="localhost">
+    </div>
+    <div>
+      <label>Base de datos</label>
+      <input id="dbDatabase" placeholder="DBPOS">
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <label>Usuario</label>
+      <input id="dbUser" placeholder="sa">
+    </div>
+    <div>
+      <label>Contraseña</label>
+      <input id="dbPassword" type="password">
+      <div id="dbPasswordHint" class="hint"></div>
+    </div>
+  </div>
+  <div class="actions">
+    <button id="btnTestConn" class="btn-secondary" onclick="probarConexion()">Probar conexión</button>
+  </div>
+
+  <h2>Archivos de operación</h2>
+  <div class="field-folder">
+    <div>
+      <label for="rootFolder">Carpeta de registros</label>
+      <input id="rootFolder" placeholder="C:\beh\POS">
+    </div>
+    <button class="btn-secondary" onclick="abrirExplorador()">Examinar...</button>
+  </div>
+
+  <h2>Imagen del ticket</h2>
+  <div class="ticket-image-field">
+    <div id="ticketImageDropZone" class="ticket-image-drop-zone" role="button" tabindex="0"
+      aria-label="Arrastra una imagen del ticket o haz clic para seleccionarla">
+      <input id="ticketImage" type="file" accept="image/png,image/jpeg" onchange="previsualizarImagen(event)" hidden>
+      <strong>Arrastra una imagen aquí</strong>
+      <span>o haz clic para seleccionarla</span>
+    </div>
+    <div class="ticket-image-preview">
+      <img id="ticketImagePreview" alt="Previsualización de la imagen del ticket" hidden>
+      <span id="ticketImageEmpty">No hay una imagen configurada.</span>
+    </div>
+    <div class="actions">
+      <button id="btnUploadTicketImage" class="btn-secondary" onclick="subirImagenTicket()">
+        Subir imagen
+      </button>
+    </div>
+    <div class="hint">Formatos permitidos: PNG o JPG. Tamaño máximo: 4 MB.</div>
+  </div>
+
+  <div class="actions">
+    <button id="btnSave" class="btn-primary" onclick="guardar()">Guardar</button>
+    <button class="btn-secondary" onclick="cargar()">Recargar</button>
+  </div>
+  <div id="msg" class="msg"></div>
+</div>
+
+<div id="folderModal" class="modal">
+  <div class="modal-content">
+    <h3>Seleccionar carpeta</h3>
+    <div class="folder-path">
+      <input id="folderPathInput" placeholder="Ruta...">
+      <button class="btn-secondary" onclick="irARuta()">Ir</button>
+    </div>
+    <ul id="folderList" class="folder-list"></ul>
+    <div class="modal-actions">
+      <button class="btn-primary" onclick="seleccionarCarpeta()">Seleccionar</button>
+      <button class="btn-secondary" onclick="cerrarExplorador()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/site.js?v=1.8.0.2"></script>
+</body>
+</html>
