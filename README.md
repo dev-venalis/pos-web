@@ -14,7 +14,7 @@ Copy-Item .\appsettings.example.json .\appsettings.json
 3. Configura la cadena de conexión y la clave JWT mediante `/config`, variables de entorno o un proveedor de secretos de IIS.
 4. Ejecuta `POSBackend.API.exe` o registra la carpeta como aplicación en IIS.
 
-La plantilla usa `localhost:8080`, usuario SQL `sa`, contraseña vacía y no fija un nombre de base de datos. Debes completar la conexión antes de usar el POS.
+La plantilla usa `localhost:8080`, usuario SQL `sa`, contraseña vacía y no fija un nombre de base de datos. La clave JWT incluida es pública y solo sirve para pruebas locales; reemplázala antes de exponer el API.
 
 ## URLs
 
@@ -48,4 +48,4 @@ Copy-Item .\appsettings.local.backup.json .\appsettings.json
 Remove-Item .\appsettings.local.backup.json
 ```
 
-No subas claves JWT, contraseñas ni cadenas de conexión reales.
+No subas claves JWT privadas, contraseñas ni cadenas de conexión reales.
