@@ -1,1 +1,0 @@
-import"./main-MUGQTEWZ.js";import{m as gi,u as Si}from"./chunk-CcYkERhg.js";import{t as P}from"./chunk-CcnB96g2.js";import{Lt as cr,S as GD,xn as mo}from"./chunk-D-tdZ-cc.js";var g=(()=>{class o{static{this.ɵfac=function(c){return new(c||o)}}static{this.ɵmod=mo({type:o})}static{this.ɵinj=cr({imports:[GD,P,gi,Si]})}}return o})();export{g as ProduccionModule};
