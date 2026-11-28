@@ -1,0 +1,1 @@
+import"./main-7DSBST6Z.js";import{m as gi,u as Si}from"./chunk-Cty8rxHP.js";import{t as P}from"./chunk-DWeFNdak.js";import{Gn as ur,et as QD,sr as yo}from"./chunk-CQO18HO2.js";var g=(()=>{class o{static{this.ɵfac=function(c){return new(c||o)}}static{this.ɵmod=yo({type:o})}static{this.ɵinj=ur({imports:[QD,P,gi,Si]})}}return o})();export{g as ProduccionModule};
